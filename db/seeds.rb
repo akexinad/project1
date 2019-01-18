@@ -1,0 +1,2 @@
+Thinker.destroy_all
+Thinker.create(:name => "Immanuel Kant", :birth => "1724-04-22", :death => "1804-02-12", :nationality => "German", :era => "Enlightenment", :quote => "And we indeed, rightly considering objects of sense as mere appearances, confess thereby that they are based upon a thing in itself, though we know not this thing as it is in itself, but only know its appearances... the way in which our senses are affected by this unknown something.")
