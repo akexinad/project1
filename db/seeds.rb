@@ -1,6 +1,6 @@
 User.destroy_all
-u1 = User.create :email => "fellini@qa.ws"
-u2 = User.create :email => "norbit@qa.ws"
+u1 = User.create :email => "ben@qa.ws", :password => "chicken"
+u2 = User.create :email => "tod@qa.ws", :password => "chicken"
 
 Thinker.destroy_all
 thk1 = Thinker.create(:name => "Immanuel Kant", :birth => "1724-04-22", :death => "1804-02-12", :nationality => "Germany", :era => "Enlightenment", :image => "https://upload.wikimedia.org/wikipedia/commons/f/f2/Kant_gemaelde_3.jpg", :quote => "And we indeed, rightly considering objects of sense as mere appearances, confess thereby that they are based upon a thing in itself, though we know not this thing as it is in itself, but only know its appearances... ")
