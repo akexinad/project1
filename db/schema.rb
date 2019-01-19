@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(version: 2019_01_18_015649) do
   enable_extension "plpgsql"
 
   create_table "fields", force: :cascade do |t|
-    t.text "title"
+    t.text "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -39,6 +39,7 @@ ActiveRecord::Schema.define(version: 2019_01_18_015649) do
     t.date "death"
     t.text "nationality"
     t.text "era"
+    t.text "image"
     t.text "quote"
     t.integer "user_id"
     t.datetime "created_at", null: false

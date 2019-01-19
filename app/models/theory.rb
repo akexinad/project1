@@ -10,4 +10,6 @@
 #
 
 class Theory < ApplicationRecord
+  belongs_to :thinker, :optional => true
+  has_and_belongs_to_many :fields
 end

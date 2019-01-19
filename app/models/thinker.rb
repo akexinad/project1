@@ -15,4 +15,7 @@
 #
 
 class Thinker < ApplicationRecord
+  belongs_to :user, :optional => true
+  has_many :theories
+  has_many :fields, :through => :theories
 end

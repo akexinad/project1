@@ -6,6 +6,7 @@ class CreateThinkers < ActiveRecord::Migration[5.2]
       t.date :death
       t.text :nationality
       t.text :era
+      t.text :image
       t.text :quote
       t.integer :user_id
 
