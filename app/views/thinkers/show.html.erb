@@ -1,12 +1,12 @@
 <h1><%= @thinker.name %></h1>
 
-<%= image_tag @thinker.image, :class => "thinker-feature" %>
+  <%= image_tag @thinker.image, :class => "thinker-feature" %>
 
 <p><%= @thinker.quote %></p>
 
 <ul>
-  <li>Born: <%= @thinker.birth %></li>
-  <li>Died: <%= @thinker.death %></li>
+  <li>Born: <%= @thinker.birth.strftime("%A, %B %e, %Y") %></li>
+  <li>Passed: <%= @thinker.death.strftime("%A, %B %e, %Y") %></li>
   <li>Era: <%= @thinker.era %></li>
   <li>Nationality: <%= @thinker.nationality %></li>
 </ul>

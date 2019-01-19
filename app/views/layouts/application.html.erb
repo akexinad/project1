@@ -16,6 +16,8 @@
           <%= link_to "Sign Out #{ @current_user.email }", login_path, :method => 'delete' %>
           <%= link_to "All Thinkers", thinkers_path %>
           <%= link_to "New Thinkers", new_thinker_path %>
+          <%= link_to "All Theories", theories_path %>
+          <%= link_to "New Theory", new_theory_path %>
         <% else %>
           <%= link_to "Sign Up", new_user_path %>
           <%= link_to "Sign In", login_path %>

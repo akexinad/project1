@@ -1,2 +1,14 @@
-<h1>Theories#show</h1>
-<p>Find me in app/views/theories/show.html.erb</p>
+<h1><%= @theory.name %></h1>
+
+<% if @theory.thinker.present? %>
+  <h2>Developed by: <%= link_to @theory.thinker.name %></h2>
+<% end %>
+
+<h3>Brief Intro</h3>
+
+<p class="brief">WIKI API</p>
+
+<div class="controllers">
+  <%= link_to "Edit Theory", edit_theory_path(@theory.id) %>
+  <%= link_to "Delete Theory", theory_path(@theory.id), :method => "delete" %>
+</div>

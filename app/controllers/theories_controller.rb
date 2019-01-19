@@ -1,16 +1,41 @@
 class TheoriesController < ApplicationController
-  def _form
-  end
-
-  def edit
-  end
 
   def index
-  end
-
-  def new
+    @theories = Theory.all
   end
 
   def show
+    @theory = Theory.find params[:id]
   end
+
+  def new
+    @theory = Theory.new
+  end
+
+  def create
+    theory = Theory.create theory_params
+    redirect_to theory_path(theory.id)
+  end
+
+  def edit
+    @theory = Theory.find params[:id]
+  end
+
+  def update
+    theory = Theory.find params[:id]
+    theory.update theory_params
+    redirect_to theory_path(theory.id)
+  end
+
+  def destroy
+    theory = Theory.find params[:id]
+    theory.destroy
+    redirect_to theories_path
+  end
+
+  private
+  def theory_params
+    params.require(:theory).permit(:name)
+  end
+
 end
