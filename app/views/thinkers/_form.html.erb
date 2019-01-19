@@ -1,2 +1,18 @@
-<h1>Thinkers#_form</h1>
-<p>Find me in app/views/thinkers/_form.html.erb</p>
+<%= form_for @thinker do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name, :autofocus => true %>
+  <%= f.label :birth %>
+  <%= f.text_field :birth, :placeholder => "YYYY-MM-DD" %>
+  <%= f.label :death %>
+  <%= f.text_field :death, :placeholder => "YYYY-MM-DD" %>
+  <%= f.label :nationality %>
+  <%= f.text_field :nationality %>
+  <%= f.label :era %>
+  <%= f.text_field :era %>
+  <%= f.label :image %>
+  <%= f.url_field :image %>
+  <%= f.label :quote %>
+  <%= f.text_field :quote %>
+
+  <%= f.submit %>
+<% end %>

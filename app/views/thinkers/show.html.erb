@@ -1,2 +1,19 @@
-<h1>Thinkers#show</h1>
-<p>Find me in app/views/thinkers/show.html.erb</p>
+<h1><%= @thinker.name %></h1>
+
+<%= image_tag @thinker.image, :class => "thinker-feature" %>
+
+<p><%= @thinker.quote %></p>
+
+<ul>
+  <li>Born: <%= @thinker.birth %></li>
+  <li>Died: <%= @thinker.death %></li>
+  <li>Era: <%= @thinker.era %></li>
+  <li>Nationality: <%= @thinker.nationality %></li>
+</ul>
+
+<!-- XXX ADD LIST OF THINKER'S WORKS AND FIELDS WHICH HE COVERS -->
+
+<div class="controls">
+  <%= link_to "Edit Entry", edit_thinker_path(@thinker.id) %>
+  <%= link_to "Delete Entry", thinker_path(@thinker.id), :method => "delete" %>
+</div>

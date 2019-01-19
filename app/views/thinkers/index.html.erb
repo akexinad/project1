@@ -1,2 +1,9 @@
-<h1>Thinkers#index</h1>
-<p>Find me in app/views/thinkers/index.html.erb</p>
+<h1>Thinkers Index</h1>
+
+<% @thinkers.each do |thinker| %>
+  <%= image_tag thinker.image, :class => "thinker-thumb" %>
+  <ul>
+    <li>Name: <%= link_to thinker.name, thinker_path(thinker.id) %></li>
+    <li>Era: <%= thinker.era %></li>
+  </ul>
+<% end %>
