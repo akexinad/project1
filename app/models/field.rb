@@ -9,6 +9,7 @@
 #
 
 class Field < ApplicationRecord
+  # validates :name, :uniqueness => true
   has_and_belongs_to_many :theories
   has_and_belongs_to_many :thinkers, :through => :theories
 end

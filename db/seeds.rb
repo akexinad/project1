@@ -19,7 +19,7 @@ ty5 = Theory.create :name => "Cultural Hegemony"
 ty6 = Theory.create :name => "Biopower"
 ty7 = Theory.create :name => "Power-Knowledge nexus"
 
-# Field.destroy_all
+Field.destroy_all
 f1 = Field.create :name => "Epistemology"
 f2 = Field.create :name => "Metaphysics"
 f3 = Field.create :name => "Sociology"
@@ -33,7 +33,7 @@ f10 = Field.create :name => "Critical Theory"
 f11 = Field.create :name => "Historicism"
 f12 = Field.create :name => "Ontology"
 f13 = Field.create :name => "Ethics"
-f14 = Field.create :name => "Literature"
+f14 = Field.create :name => "Literary Criticism"
 
 # ASSOCIATIONS ################################################
 
@@ -44,7 +44,7 @@ t3.theories << ty4
 t4.theories << ty5
 t5.theories << ty6 << ty7
 
-## Theories and Fields
+# Theories and Fields
 ty1.fields << f1 << f2 << f3 << f12
 ty2.fields << f3 << f4 << f7 << f5
 ty3.fields << f3 << f4 << f6 << f7
@@ -53,6 +53,6 @@ ty5.fields << f3 << f4 << f6 << f7 << f9 << f11
 ty6.fields << f1 << f3 << f6 << f9 << f13 << f14
 ty7.fields << f1 << f3 << f5 << f7 << f9
 
-## Users and Thinkers
+# Users and Thinkers
 u1.thinkers << t1 << t2 << t5
 u2.thinkers << t3 << t4
