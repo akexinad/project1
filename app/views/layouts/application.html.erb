@@ -13,7 +13,7 @@
     <div class="container">
       <nav>
         <% if @current_user.present? %>
-          <%= link_to "Sign Out #{ @current_user.email }", login_path, :method => 'delete' %>
+          <%= link_to "Profile", user_path(@current_user) %>
           |
           <%= link_to "Thinkers", thinkers_path %>
           -
@@ -25,7 +25,10 @@
           |
           <%= link_to "Fields", fields_path %>
           -
-          <%= link_to "New Field", new_field_path %>
+          <%= link_to "Add Field", new_field_path %>
+          |
+          <%= link_to "Sign Out #{ @current_user.email }", login_path, :method => 'delete' %>
+
         <% else %>
           <%= link_to "Sign Up", new_user_path %>
           <%= link_to "Sign In", login_path %>

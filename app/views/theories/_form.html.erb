@@ -2,5 +2,8 @@
   <%= f.label :name %>
   <%= f.text_field :name, :autofocus => true %>
 
+  <%= f.label :thinker_id %>
+  <%= f.select :thinker_id, Thinker.pluck(:name, :id), :include_blank => true %>
+
   <%= f.submit %>
 <% end %>

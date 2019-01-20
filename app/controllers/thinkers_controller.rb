@@ -1,10 +1,12 @@
 class ThinkersController < ApplicationController
   def index
-    @thinkers = Thinker.all
+    @thinkers = Thinker.order("name ASC")
   end
 
   def show
     @thinker = Thinker.find params[:id]
+    @theories = @thinker.theories.order("name ASC")
+    @fields = @thinker.fields.order("name ASC").uniq(&:name)
   end
 
   def new
@@ -34,7 +36,7 @@ class ThinkersController < ApplicationController
 
   private
   def thinker_params
-    params.require(:thinker).permit(:name, :birth, :death, :nationality, :era, :image, :quote)
+    params.require(:thinker).permit(:name, :birth, :death, :nationality, :era, :image, :quote, :field_id)
   end
 
 end

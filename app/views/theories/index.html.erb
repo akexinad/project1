@@ -2,9 +2,10 @@
 
 <% @theories.each do |theory| %>
   <ul>
-    <li class="theory-item"><%= link_to theory.name, theory_path(theory.id) %></li>
+    <li class="theory-item"><%= link_to theory.name, theory_path(theory.id) %> |
       <% if theory.thinker.present? %>
-        <li class="theory-thinker-item">By: <%= link_to theory.thinker.name, thinker_path(theory.thinker.id) %></li>
+        <%= link_to theory.thinker.name, thinker_path(theory.thinker.id) %>
       <% end %>
+    </li>
   </ul>
 <% end %>

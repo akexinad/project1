@@ -1,7 +1,7 @@
 class TheoriesController < ApplicationController
 
   def index
-    @theories = Theory.all
+    @theories = Theory.order("name ASC")
   end
 
   def show
@@ -35,7 +35,7 @@ class TheoriesController < ApplicationController
 
   private
   def theory_params
-    params.require(:theory).permit(:name)
+    params.require(:theory).permit(:name, :thinker_id)
   end
 
 end

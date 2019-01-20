@@ -6,12 +6,23 @@
 
 <ul>
   <li>Born: <%= @thinker.birth.strftime("%A, %B %e, %Y") %></li>
+  <% if @thinker.death.present? %>
   <li>Passed: <%= @thinker.death.strftime("%A, %B %e, %Y") %></li>
+  <% end %>
   <li>Era: <%= @thinker.era %></li>
   <li>Nationality: <%= @thinker.nationality %></li>
 </ul>
 
 <!-- XXX ADD LIST OF THINKER'S WORKS AND FIELDS WHICH HE COVERS -->
+<h2>Theories Developed by <%= @thinker.name %></h2>
+<% @theories.each do |theory| %>
+  <li><%= link_to theory.name, theory %></li>
+<% end %>
+
+<h2>Fields Explored by <%= @thinker.name %></h2>
+<% @fields.each do |field| %>
+  <li><%= link_to field.name, field %></li>
+<% end %>
 
 <div class="controls">
   <%= link_to "Edit Entry", edit_thinker_path(@thinker.id) %>

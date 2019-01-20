@@ -1,7 +1,7 @@
 <h1><%= @theory.name %></h1>
 
 <% if @theory.thinker.present? %>
-  <h2>Developed by: <%= link_to @theory.thinker.name %></h2>
+  <h2>Developed by: <%= link_to @theory.thinker.name, @theory.thinker %></h2>
 <% end %>
 
 <h3>Brief Intro</h3>
