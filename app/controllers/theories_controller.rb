@@ -5,7 +5,12 @@ class TheoriesController < ApplicationController
   end
 
   def show
+    require 'wikipedia'
     @theory = Theory.find params[:id]
+    wiki_api = Wikipedia.find( "#{@theory.name.downcase}" )
+    @summary = wiki_api.text
+    # @summary = wiki_api.content
+    @info = wiki_api.fullurl
   end
 
   def new

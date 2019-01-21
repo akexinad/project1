@@ -9,4 +9,6 @@ Rails.application.routes.draw do
   resources :thinkers
   resources :theories
   resources :fields
+
+  post "/thinkers/:id/favourite" => "thinkers#add_to_favourites", :as => "add_to_favourites"
 end

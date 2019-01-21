@@ -13,6 +13,11 @@
   <li>Nationality: <%= @thinker.nationality %></li>
 </ul>
 
+<h2>Breif Bio</h2>
+<p><%= truncate @summary, :length => 1000 %></p>
+
+<p><%= link_to "Read More", @info %></p>
+
 <!-- XXX ADD LIST OF THINKER'S WORKS AND FIELDS WHICH HE COVERS -->
 <h2>Theories Developed by <%= @thinker.name %></h2>
 <% @theories.each do |theory| %>
@@ -25,6 +30,7 @@
 <% end %>
 
 <div class="controls">
+  <%= link_to "Add to List", add_to_favourites_path(@thinker.id), :method => "post" %>
   <%= link_to "Edit Entry", edit_thinker_path(@thinker.id) %>
   <%= link_to "Delete Entry", thinker_path(@thinker.id), :method => "delete" %>
 </div>

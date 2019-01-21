@@ -1,1 +1,12 @@
-<h1>Hello</h1>
+<h1><%= @current_user.email %></h1>
+
+<h2>Favourites</h2>
+
+<% @current_user.favourites.each do |favourite| %>
+  <li><%= favourite.thinker.name %></li>
+<% end  %>
+
+
+
+
+<!-- Maybe a link to a thesis page where he can add what thinkers and theories he is utlizing along with referenced texts. -->

@@ -8,6 +8,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find params[:id]
+    # @id = @user.favourites.thinker_id
   end
 
   def new

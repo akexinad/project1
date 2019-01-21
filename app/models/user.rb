@@ -13,4 +13,5 @@ class User < ApplicationRecord
 
   validates :email, :presence => true, :uniqueness => true
   has_many :thinkers
+  has_many :favourites
 end

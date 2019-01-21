@@ -5,9 +5,11 @@ class FieldsController < ApplicationController
   end
 
   def show
+    require 'wikipedia'
     @field = Field.find params[:id]
     @theories = @field.theories.order("name ASC")
-
+    wiki_api = Wikipedia.find( "#{ @field.name }" )
+    @summary = wiki_api.summary
   end
 
   def new

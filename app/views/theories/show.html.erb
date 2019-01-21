@@ -4,9 +4,10 @@
   <h2>Developed by: <%= link_to @theory.thinker.name, @theory.thinker %></h2>
 <% end %>
 
-<h3>Brief Intro</h3>
+<h3>Brief Summary</h3>
+<p><%= truncate @summary, :length => 500 %></p>
 
-<p class="brief">WIKI API</p>
+<p><%= link_to "Read more", @info %></p>
 
 <div class="controls">
   <%= link_to "Edit Theory", edit_theory_path(@theory.id) %>

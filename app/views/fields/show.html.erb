@@ -2,14 +2,14 @@
 
 <h2><%= @field.name %></h2>
 
-<h3>Brief Intro Into <%= @field.name %></h3>
+<p><%= truncate @summary, :length => 500 %></p>
 
 <h3>Theories That Have Contributed To The Development Of <%= @field.name %></h3>
 <% @theories.each do |theory| %>
   <li><%= link_to theory.name, theory %> | <%= link_to theory.thinker.name, theory.thinker %></li>
 <% end %>
 
-<div class="controllers">
+<div class="controls">
   <%= link_to "Edit Field", edit_field_path(@field.id) %>
   <%= link_to "Delete Field", field_path(@field.id), :method => "delete" %>
 </div>
