@@ -14,5 +14,8 @@
   <%= f.label :quote %>
   <%= f.text_field :quote %>
 
+  <%= f.label :"Theoretical Contributions" %>
+  <%= f.select :theory_ids, Theory.pluck(:name, :id), :include_blank => true %>
+
   <%= f.submit %>
 <% end %>

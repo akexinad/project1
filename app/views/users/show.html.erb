@@ -3,7 +3,7 @@
 <h2>Favourites</h2>
 
 <% @current_user.favourites.each do |favourite| %>
-  <li><%= favourite.thinker.name %></li>
+  <li><%= link_to favourite.thinker.name, favourite.thinker %></li>
 <% end  %>
 
 

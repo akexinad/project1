@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  # before_action :check_for_login, :only => [:index]
+  before_action :check_for_login, :only => [:index]
   # before_action :check_for_admin, :only => [:index]
 
   def index
@@ -8,7 +8,6 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find params[:id]
-    # @id = @user.favourites.thinker_id
   end
 
   def new
