@@ -1,6 +1,10 @@
 class ThinkersController < ApplicationController
   def index
-    @thinkers = Thinker.order("name ASC")
+    if params[:query]
+      @thinkers = Thinker.text_search(params[:query])
+    else
+      @thinkers = Thinker.order("name ASC")
+    end
   end
 
   def show
@@ -11,6 +15,9 @@ class ThinkersController < ApplicationController
     wiki_api = Wikipedia.find( "#{@thinker.name}" )
     @summary = wiki_api.summary
     @info = wiki_api.fullurl
+    url = "https://www.googleapis.com/books/v1/volumes?q=author:#{ @thinker.name }"
+    info = HTTParty.get url
+    @items = info["items"]
   end
 
   def new
@@ -19,7 +26,32 @@ class ThinkersController < ApplicationController
 
   def create
     thinker = Thinker.create thinker_params
+    if params[:file].present?
+      req = Cloudinary::Uploader.upload params[:file]
+      thinker.image = req["public_id"]
+      thinker.save
+    end
     redirect_to thinker_path(thinker.id)
+  end
+
+  def edit
+    @thinker = Thinker.find params[:id]
+  end
+
+  def update
+    thinker = Thinker.find params[:id]
+    if params[:file].present?
+      req = Cloudinary::Uploader.upload params[:file]
+      thinker.image = req["public_id"]
+    end
+    thinker.update thinker_params
+    redirect_to thinker_path(thinker.id)
+  end
+
+  def destroy
+    thinker = Thinker.find params[:id]
+    thinker.destroy
+    redirect_to thinkers_path
   end
 
   def add_to_favourites
@@ -30,20 +62,11 @@ class ThinkersController < ApplicationController
     redirect_to thinker
   end
 
-  def edit
-    @thinker = Thinker.find params[:id]
-  end
-
-  def update
-    thinker = Thinker.find params[:id]
-    thinker.update thinker_params
-    redirect_to thinker_path(thinker.id)
-  end
-
-  def destroy
-    thinker = Thinker.find params[:id]
-    thinker.destroy
-    redirect_to thinkers_path
+  def destroy_favourite
+    # raise "hell"
+    favourite = Favourite.find params[:fav_id]
+    favourite.destroy
+    redirect_to @current_user
   end
 
   private

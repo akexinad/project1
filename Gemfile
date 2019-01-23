@@ -39,6 +39,12 @@ gem 'bootstrap'
 
 gem 'jquery-rails'
 
+gem 'pg_search'
+
+gem 'cloudinary'
+
+# gem 'texticle', require: 'texticle/rails'
+
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 

@@ -1,7 +1,11 @@
 class TheoriesController < ApplicationController
 
   def index
-    @theories = Theory.order("name ASC")
+    if params[:query]
+      @theories = Theory.text_search(params[:query])
+    else
+      @theories = Theory.order("name ASC")
+    end
   end
 
   def show

@@ -1,4 +1,13 @@
-<h1>Theories Index</h1>
+<h1>Theories</h1>
+
+<h4><strong>Refine Search:</strong></h4>
+
+<%= form_tag theories_path, :method => "get" do %>
+  <p>
+    <%= text_field_tag :query, params[:query] %>
+    <%= submit_tag "Search", name: nil %>
+  </p>
+<% end %>
 
 <% @theories.each do |theory| %>
   <ul>

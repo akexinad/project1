@@ -1,0 +1,21 @@
+def create
+
+
+
+  if params[:file].present?
+    req = Cloudinary::Uploader.upload(params[:file])
+    bar.image= req["public_id"]
+    bar.save
+  end
+  redirect_to animal_path
+end
+
+
+---------- VIEWS -----------
+
+in your edit/new form you need to add:
+
+<%= {:multipart => true} do |f| %>
+
+
+You will also have to change your show.html.erb pages

@@ -1,11 +1,13 @@
 <h1><%= @thinker.name %></h1>
 
-  <%= image_tag @thinker.image, :class => "thinker-feature" %>
+  <%= cl_image_tag @thinker.image, :class => "thinker-feature" %>
 
 <p><%= @thinker.quote %></p>
 
 <ul>
+  <% if @thinker.birth.present? %>
   <li>Born: <%= @thinker.birth.strftime("%A, %B %e, %Y") %></li>
+  <% end %>
   <% if @thinker.death.present? %>
   <li>Passed: <%= @thinker.death.strftime("%A, %B %e, %Y") %></li>
   <% end %>
@@ -29,8 +31,15 @@
   <li><%= link_to field.name, field %></li>
 <% end %>
 
+<h2>Texts by <%= @thinker.name %></h2>
+<% @items.each do |item| %>
+  <% if item["volumeInfo"]["authors"].include?(@thinker.name) %>
+    <li><%= link_to item["volumeInfo"]["title"], item["volumeInfo"]["infoLink"] %></li>
+  <% end %>
+<% end %>
+
 <div class="controls">
-  <%= link_to "Add to List", add_to_favourites_path(@thinker.id), :method => "post" %>
   <%= link_to "Edit Entry", edit_thinker_path(@thinker.id) %>
   <%= link_to "Delete Entry", thinker_path(@thinker.id), :method => "delete" %>
+  <%= link_to "Add to List", add_to_favourites_path(@thinker.id), :method => "post" %>
 </div>

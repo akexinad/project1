@@ -3,10 +3,8 @@
 <h2>Favourites</h2>
 
 <% @current_user.favourites.each do |favourite| %>
-  <li><%= link_to favourite.thinker.name, favourite.thinker %></li>
+  <li><%= link_to favourite.thinker.name, favourite.thinker %> | <%= link_to "Remove", delete_from_favourites_path(:fav_id => favourite.id) %></li>
 <% end  %>
 
 
-
-
-<!-- Maybe a link to a thesis page where he can add what thinkers and theories he is utlizing along with referenced texts. -->
+<!-- You can create a variable to store favourite the id of favourite. -->

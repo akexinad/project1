@@ -1,4 +1,13 @@
-<h1>Thinkers Index</h1>
+<h1>Theorists</h1>
+
+<h4><strong>Refine Search:</strong></h4>
+
+<%= form_tag thinkers_path, :method => "get" do %>
+  <p>
+    <%= text_field_tag :query, params[:query] %>
+    <%= submit_tag "Search", name: nil %>
+  </p>
+<% end %>
 
 <% @thinkers.each do |thinker| %>
   <%= image_tag thinker.image, :class => "thinker-thumb" %>
