@@ -5,8 +5,9 @@ font-family: 'IBM Plex Mono', monospace;
 font-family: 'Open Sans', sans-serif;
 */
 body {
-  /* box-sizing: border-box; */
-  background-image: url("https://res.cloudinary.com/dn06wkfzm/image/upload/v1548365888/project1/background.jpg");
+  /* background-image: url("https://res.cloudinary.com/dn06wkfzm/image/upload/v1548365888/project1/background.jpg"); */
+  background-image: url("https://images.unsplash.com/photo-1532012197267-da84d127e765?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1534&q=80");
+  /* background-image: url("/assets/background.jpg"); */
   background-repeat: no-repeat;
   background-size: 100%;
   background-position: center top;
