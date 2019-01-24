@@ -1,6 +1,5 @@
-<form>
   <div class="form-group">
-    <%= form_for @thinker, :html => {:multipart => true} do |f| %>
+    <%= form_for @thinker do |f| %>
       <%= f.label :name %>
       <%= f.text_field :name, :class => "form-control", :autofocus => true %>
   </div>
@@ -30,23 +29,8 @@
   </div>
   <div class="form-group">
       <%= f.label :"Theoretical Contributions" %>
-      <%= f.select :theory_ids, Theory.pluck(:name, :id), :include_blank => true, :class => "form-control" %>
+      <%= f.select :theory_ids, Theory.pluck(:name, :id), :include_blank => true %>
   </div>
 
-  <div class="btn btn-primary">
     <%= f.submit %>
   <% end %>
-  </div>
-
-</form>
-<!--
-<div class="form-group">
-    <label for="exampleFormControlSelect1">Example select</label>
-    <select class="form-control" id="exampleFormControlSelect1">
-      <option>1</option>
-      <option>2</option>
-      <option>3</option>
-      <option>4</option>
-      <option>5</option>
-    </select>
-  </div> -->
