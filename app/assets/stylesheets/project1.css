@@ -6,7 +6,7 @@ font-family: 'Open Sans', sans-serif;
 */
 body {
   /* box-sizing: border-box; */
-  background-image: url("/assets/background.jpg");
+  background-image: url("https://res.cloudinary.com/dn06wkfzm/image/upload/v1548365888/project1/background.jpg");
   background-repeat: no-repeat;
   background-size: 100%;
   background-position: center top;
