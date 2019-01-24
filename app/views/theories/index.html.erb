@@ -1,20 +1,25 @@
 <h1>Theories</h1>
 
-<h4><strong>Refine Search:</strong></h4>
-
-<%= form_tag theories_path, :method => "get" do %>
-  <p>
-    <%= text_field_tag :query, params[:query] %>
-    <%= submit_tag "Search", name: nil %>
-  </p>
-<% end %>
-
-<% @theories.each do |theory| %>
-  <ul>
-    <li class="theory-item"><%= link_to theory.name, theory_path(theory.id) %> |
-      <% if theory.thinker.present? %>
-        <%= link_to theory.thinker.name, thinker_path(theory.thinker.id) %>
+<div class="row">
+    <div class="col-sm-6">
+      <% @theories.each do |theory| %>
+        <ul>
+          <li class="theory-item"><%= link_to theory.name, theory_path(theory.id) %> |
+            <% if theory.thinker.present? %>
+              <%= link_to theory.thinker.name, thinker_path(theory.thinker.id) %>
+            <% end %>
+          </li>
+        </ul>
       <% end %>
-    </li>
-  </ul>
-<% end %>
+    </div>
+    <div class="main-list col-sm-6">
+      <form class="form-inline">
+        <div class="form-group mx-sm-3 mb-2">
+          <%= form_tag theories_path, :method => "get" do %>
+              <%= text_field_tag :query, params[:query], :class => "form-control" %>
+        </div>
+              <%= submit_tag "Search", name: nil, :class => "btn btn-primary mb-2" %>
+          <% end %>
+      </form>
+    </div>
+  </div>

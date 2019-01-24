@@ -7,7 +7,7 @@ class SessionController < ApplicationController
     if user.present? && user.authenticate(params[:password])
       # This hash below ensures that you are remembered as you surf the site. Every user gets its own has
       session[:user_id] = user.id
-      redirect_to root_path
+      redirect_to user_path(user.id)
     else
       flash[:error_message] = "Invalid email or password"
       redirect_to login_path

@@ -1,18 +1,25 @@
 <h1>Theorists</h1>
 
-<h4><strong>Refine Search:</strong></h4>
+<div class="row">
+    <div class="main-list col-sm">
+      <% @thinkers.each do |thinker| %>
+        <ul>
+          <li><%= link_to thinker.name, thinker_path(thinker.id) %></li>
+            <ul>
+              <li><%= thinker.era %></li>
+            </ul>
+        </ul>
+      <% end %>
 
-<%= form_tag thinkers_path, :method => "get" do %>
-  <p>
-    <%= text_field_tag :query, params[:query] %>
-    <%= submit_tag "Search", name: nil %>
-  </p>
-<% end %>
-
-<% @thinkers.each do |thinker| %>
-  <%= image_tag thinker.image, :class => "thinker-thumb" %>
-  <ul>
-    <li>Name: <%= link_to thinker.name, thinker_path(thinker.id) %></li>
-    <li>Era: <%= thinker.era %></li>
-  </ul>
-<% end %>
+    </div>
+    <div class="col-sm">
+      <form class="form-inline">
+        <div class="form-group mx-sm-3 mb-2">
+          <%= form_tag thinkers_path, :method => "get" do %>
+              <%= text_field_tag :query, params[:query], :class => "form-control" %>
+        </div>
+              <%= submit_tag "Search", name: nil, :class => "btn btn-primary mb-2" %>
+          <% end %>
+      </form>
+    </div>
+  </div>

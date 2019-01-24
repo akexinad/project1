@@ -1,4 +1,8 @@
-<h1>Sign Up</h1>
+<div class="row">
+  <div class="col-sm">
+  </div>
+  <div class="col-sm">
+<h1 class="login-title">Sign Up</h1>
 
 <% if @user.errors.any? %>
   <ol>
@@ -9,14 +13,25 @@
 <% end %>
 
 <%= form_for @user do |f| %>
+<div class="form-group">
   <%= f.label :email %>
-  <%= f.email_field :email, :required => true %>
+  <%= f.email_field :email, :required => true, :class => "form-control" %>
+</div>
 
+<div class="form-group">
   <%= f.label :password %>
-  <%= f.password_field :password, :required => true %>
+  <%= f.password_field :password, :required => true, :class => "form-control" %>
+</div>
 
+<div class="form-group">
   <%= f.label :password_confirmation %>
-  <%= f.password_field :password_confirmation, :required => true %>
+  <%= f.password_field :password_confirmation, :required => true, :class => "form-control" %>
+</div>
 
-  <%= f.submit "Sign Up!" %>
+<div class="button">
+  <%= f.submit "Sign Up!", :class => "btn btn-primary" %>
 <% end %>
+</div>
+</div>
+<div class="col-sm">
+</div>

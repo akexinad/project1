@@ -14,6 +14,7 @@ class ThinkersController < ApplicationController
     @fields = @thinker.fields.order("name ASC").uniq(&:name)
     wiki_api = Wikipedia.find( "#{@thinker.name}" )
     @summary = wiki_api.summary
+    # @summary = wiki_api.text
     @info = wiki_api.fullurl
     url = "https://www.googleapis.com/books/v1/volumes?q=author:#{ @thinker.name }"
     info = HTTParty.get url

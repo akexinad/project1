@@ -11,9 +11,9 @@ class TheoriesController < ApplicationController
   def show
     require 'wikipedia'
     @theory = Theory.find params[:id]
+    @fields = @theory.fields.order("name ASC")
     wiki_api = Wikipedia.find( "#{@theory.name.downcase}" )
-    @summary = wiki_api.text
-    # @summary = wiki_api.content
+    @summary = wiki_api.summary
     @info = wiki_api.fullurl
   end
 

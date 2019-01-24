@@ -1,21 +1,52 @@
-<%= form_for @thinker, :html => {:multipart => true} do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name, :autofocus => true %>
-  <%= f.label :birth %>
-  <%= f.text_field :birth, :placeholder => "YYYY-MM-DD" %>
-  <%= f.label :death %>
-  <%= f.text_field :death, :placeholder => "YYYY-MM-DD" %>
-  <%= f.label :nationality %>
-  <%= f.text_field :nationality %>
-  <%= f.label :era %>
-  <%= f.text_field :era %>
-  <%= f.label :image %>
-  <%= f.url_field :image %>
-  <%= f.label :quote %>
-  <%= f.text_field :quote %>
+<form>
+  <div class="form-group">
+    <%= form_for @thinker, :html => {:multipart => true} do |f| %>
+      <%= f.label :name %>
+      <%= f.text_field :name, :class => "form-control", :autofocus => true %>
+  </div>
+  <div class="form-group">
+      <%= f.label :birth %>
+      <%= f.text_field :birth, :class => "form-control", :placeholder => "YYYY-MM-DD" %>
+  </div>
+  <div class="form-group">
+      <%= f.label :death %>
+      <%= f.text_field :death, :class => "form-control", :placeholder => "YYYY-MM-DD" %>
+  </div>
+  <div class="form-group">
+      <%= f.label :nationality %>
+      <%= f.text_field :nationality, :class => "form-control" %>
+  </div>
+  <div class="form-group">
+      <%= f.label :era %>
+      <%= f.text_field :era, :class => "form-control" %>
+  </div>
+  <div class="form-group">
+      <%= f.label :image %>
+      <%= f.url_field :image, :class => "form-control" %>
+  </div>
+  <div class="form-group">
+      <%= f.label :quote %>
+      <%= f.text_field :quote, :class => "form-control" %>
+  </div>
+  <div class="form-group">
+      <%= f.label :"Theoretical Contributions" %>
+      <%= f.select :theory_ids, Theory.pluck(:name, :id), :include_blank => true, :class => "form-control" %>
+  </div>
 
-  <%= f.label :"Theoretical Contributions" %>
-  <%= f.select :theory_ids, Theory.pluck(:name, :id), :include_blank => true %>
+  <div class="btn btn-primary">
+    <%= f.submit %>
+  <% end %>
+  </div>
 
-  <%= f.submit %>
-<% end %>
+</form>
+<!--
+<div class="form-group">
+    <label for="exampleFormControlSelect1">Example select</label>
+    <select class="form-control" id="exampleFormControlSelect1">
+      <option>1</option>
+      <option>2</option>
+      <option>3</option>
+      <option>4</option>
+      <option>5</option>
+    </select>
+  </div> -->

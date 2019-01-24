@@ -1,10 +1,9 @@
-<h1><%= @current_user.email %></h1>
+<h1>Welcome Back</h1>
 
 <h2>Favourites</h2>
 
 <% @current_user.favourites.each do |favourite| %>
   <li><%= link_to favourite.thinker.name, favourite.thinker %> | <%= link_to "Remove", delete_from_favourites_path(:fav_id => favourite.id) %></li>
 <% end  %>
-
 
 <!-- You can create a variable to store favourite the id of favourite. -->

@@ -1,15 +1,16 @@
 <h1>Fields</h1>
 
-<h2><%= @field.name %></h2>
+<h2 class="h2-fields"><%= @field.name %></h2>
 
+<h3>Brief Summary</h3>
 <p><%= truncate @summary, :length => 500 %></p>
 
-<h3><%= @field.name %>: Related Theories</h3>
+<h3>Related Theories</h3>
 <% @theories.each do |theory| %>
   <li><%= link_to theory.name, theory %> | <%= link_to theory.thinker.name, theory.thinker %></li>
 <% end %>
 
 <div class="controls">
-  <%= link_to "Edit Field", edit_field_path(@field.id) %>
-  <%= link_to "Delete Field", field_path(@field.id), :method => "delete" %>
+  <%= link_to "Edit Field", edit_field_path(@field.id), :class => "btn btn-primary" %>
+  <%= link_to "Delete Field", field_path(@field.id), :method => "delete", :class => "btn btn-danger" %>
 </div>

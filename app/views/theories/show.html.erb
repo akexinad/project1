@@ -1,7 +1,7 @@
 <h1><%= @theory.name %></h1>
 
 <% if @theory.thinker.present? %>
-  <h2>Developed by: <%= link_to @theory.thinker.name, @theory.thinker %></h2>
+  <h2 class="h2-theories">By <%= link_to @theory.thinker.name, @theory.thinker %></h2>
 <% end %>
 
 <h3>Brief Summary</h3>
@@ -9,7 +9,13 @@
 
 <p><%= link_to "Read more", @info %></p>
 
+<h3>Related Fields</h3>
+
+<% @fields.each do |field| %>
+  <li><%= link_to field.name, field %></li>
+<% end %>
+
 <div class="controls">
-  <%= link_to "Edit Theory", edit_theory_path(@theory.id) %>
-  <%= link_to "Delete Theory", theory_path(@theory.id), :method => "delete" %>
+  <%= link_to "Edit Theory", edit_theory_path(@theory.id), :class => "btn btn-primary" %>
+  <%= link_to "Delete Theory", theory_path(@theory.id), :method => "delete", :class => "btn btn-danger" %>
 </div>

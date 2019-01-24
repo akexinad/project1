@@ -1,10 +1,12 @@
 <h1><%= @thinker.name %></h1>
 
-  <%= cl_image_tag @thinker.image, :class => "thinker-feature" %>
+<%= cl_image_tag @thinker.image, :class => "thinker-feature" %>
 
-<p><%= @thinker.quote %></p>
+<div class="quote-box">
+  <p class="quote"><%= @thinker.quote %></p>
+</div>
 
-<ul>
+<ul class="bio-info">
   <% if @thinker.birth.present? %>
   <li>Born: <%= @thinker.birth.strftime("%A, %B %e, %Y") %></li>
   <% end %>
@@ -15,31 +17,44 @@
   <li>Nationality: <%= @thinker.nationality %></li>
 </ul>
 
+<div class="wiki-brief">
 <h2>Brief</h2>
 <p><%= truncate @summary, :length => 1000 %></p>
 
 <p><%= link_to "Read More", @info %></p>
+</div>
 
-<!-- XXX ADD LIST OF THINKER'S WORKS AND FIELDS WHICH HE COVERS -->
-<h2>Theories Developed by <%= @thinker.name %></h2>
-<% @theories.each do |theory| %>
-  <li><%= link_to theory.name, theory %></li>
-<% end %>
-
-<h2>Fields Explored by <%= @thinker.name %></h2>
-<% @fields.each do |field| %>
-  <li><%= link_to field.name, field %></li>
-<% end %>
-
-<h2>Texts by <%= @thinker.name %></h2>
-<% @items.each do |item| %>
-  <% if item["volumeInfo"]["authors"].include?(@thinker.name) %>
-    <li><%= link_to item["volumeInfo"]["title"], item["volumeInfo"]["infoLink"] %></li>
-  <% end %>
-<% end %>
+<div class="row">
+    <div class="col-sm">
+      <h2>Theories</h2>
+      <% @theories.each do |theory| %>
+        <ul>
+          <li><%= link_to theory.name, theory %></li>
+        </ul>
+      <% end %>
+    </div>
+    <div class="col-sm">
+      <h2>Related Fields</h2>
+      <% @fields.each do |field| %>
+        <ul>
+          <li><%= link_to field.name, field %></li>
+        </ul>
+      <% end %>
+    </div>
+    <div class="col-sm">
+      <h2>Publications</h2>
+      <% @items.each do |item| %>
+        <% if item["volumeInfo"]["authors"].include?(@thinker.name) %>
+        <ul>
+          <li><%= link_to item["volumeInfo"]["title"], item["volumeInfo"]["infoLink"] %></li>
+        </ul>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
 
 <div class="controls">
-  <%= link_to "Edit Entry", edit_thinker_path(@thinker.id) %>
-  <%= link_to "Delete Entry", thinker_path(@thinker.id), :method => "delete" %>
-  <%= link_to "Add to List", add_to_favourites_path(@thinker.id), :method => "post" %>
+  <%= link_to "Edit Entry", edit_thinker_path(@thinker.id), :class => "btn btn-primary" %>
+  <%= link_to "Delete Entry", thinker_path(@thinker.id), :method => "delete", :class => "btn btn-danger" %>
+  <%= link_to "Add to List", add_to_favourites_path(@thinker.id), :method => "post", :class => "btn btn-success" %>
 </div>

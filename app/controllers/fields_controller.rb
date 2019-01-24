@@ -1,7 +1,11 @@
 class FieldsController < ApplicationController
 
   def index
-    @fields = Field.order("name ASC").uniq(&:name)
+    if params[:query]
+      @fields = Field.text_search(params[:query])
+    else
+      @fields = Field.order("name ASC")
+    end
   end
 
   def show

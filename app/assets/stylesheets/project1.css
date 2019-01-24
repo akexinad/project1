@@ -1,12 +1,26 @@
+@import url('https://fonts.googleapis.com/css?family=IBM+Plex+Mono|Inconsolata|Open+Sans');
+/*
+font-family: 'Inconsolata', monospace;
+font-family: 'IBM Plex Mono', monospace;
+font-family: 'Open Sans', sans-serif;
+*/
 body {
-  box-sizing: border-box;
-  /* background-color: blanchedalmond; */
+  /* box-sizing: border-box; */
+  background-image: url("/assets/background.jpg");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
 }
 
-/* .container {
-  max-width: 960px;
+.container {
   margin: 0 auto;
-} */
+  padding-left: 3em;
+  padding-right: 3em;
+  background-color: blanchedalmond;
+  opacity: 0.9;
+  min-height: 300vh;
+  border-radius: 2em;
+}
 
 .thinker-thumb {
   max-height: 10vh;
@@ -15,7 +29,85 @@ body {
 }
 
 .thinker-feature {
+  display: block;
+  margin: 5em auto 3em auto;
   max-height: 50vh;
   border-top-right-radius: 40px;
   border-bottom-left-radius: 40px;
+}
+
+.login-title {
+  font-family: 'IBM Plex Mono', monospace;
+  text-align: center;
+  padding-top: 3em;
+}
+
+h1 {
+  font-family: 'IBM Plex Mono', monospace;
+  text-align: center;
+  font-size: 4em;
+  padding-top: 1em;
+  padding-bottom: 1em;
+}
+
+h2 {
+  font-family: 'Open Sans', sans-serif;
+  padding-bottom: 2em;
+}
+
+.h2-theories {
+  text-align: center;
+}
+
+.h2-fields {
+  text-align: center;
+}
+
+h4 {
+  padding-left: 1em;
+}
+
+li {
+  padding: 0;
+  list-style-type: none;
+}
+
+ul {
+  padding: 0;
+}
+
+.quote-box {
+  display: block;
+  max-width: 400px;
+  margin: 0 auto;
+  margin-bottom: 3em;
+}
+
+.quote {
+  font-family: courier;
+  text-align: center;
+  margin-left: 0;
+  max-width: 500px;
+}
+
+.bio-info {
+  margin-left: 0;
+  padding: 0;
+  font-family: 'Inconsolata', monospace;
+  font-size: 120%;
+}
+
+.wiki-brief {
+  display: block;
+  margin: 0 auto;
+  padding: 3em 0 3em 0;
+}
+
+.controls {
+  padding-top: 10vh;
+  padding-bottom: 10vh;
+}
+
+.main-list {
+  padding-left: 60px;
 }

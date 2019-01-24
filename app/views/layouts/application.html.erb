@@ -11,29 +11,62 @@
   </head>
 
   <body>
-    <div class="container">
-      <nav>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
         <% if @current_user.present? %>
-          <%= link_to "Profile", user_path(@current_user) %>
-          |
-          <%= link_to "Thinkers", thinkers_path %>
-          -
-          <%= link_to "Add Thinker", new_thinker_path %>
-          |
-          <%= link_to "Theories", theories_path %>
-          -
-          <%= link_to "New Theory", new_theory_path %>
-          |
-          <%= link_to "Fields", fields_path %>
-          -
-          <%= link_to "Add Field", new_field_path %>
-          |
-          <%= link_to "Sign Out", login_path, :method => 'delete' %>
-        <% else %>
-          <%= link_to "Sign Up", new_user_path %>
-          <%= link_to "Sign In", login_path %>
-        <% end %>
-      </nav>
+          <%= link_to "Profile", user_path(@current_user), :class => "nav-link" %>
+      </li>
+      <li class="nav-item">
+        <!-- <a class="nav-link" href="#">Link</a> -->
+        <%= link_to "Sign Out", login_path, :class => "nav-link", :method => 'delete' %>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Explore
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <!-- <a class="dropdown-item" href="#">Action</a> -->
+          <%= link_to "Thinkers", thinkers_path, :class => "dropdown-item" %>
+          <%= link_to "Theories", theories_path, :class => "dropdown-item" %>
+          <%= link_to "Fields", fields_path, :class => "dropdown-item" %>
+        </div>
+      </li>
+      <!-- <li class="nav-item">
+        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+      </li> -->
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Additions
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <!-- <a class="dropdown-item" href="#">Action</a> -->
+          <%= link_to "Add Thinker", new_thinker_path, :class => "dropdown-item" %>
+          <%= link_to "New Theory", new_theory_path, :class => "dropdown-item"  %>
+          <%= link_to "Add Field", new_field_path, :class => "dropdown-item"  %>
+        </div>
+      </li>
+      <% else %>
+      <li class="nav-item active">
+        <%= link_to "Sign In", login_path, :class => "nav-link" %>
+        <%= link_to "Sign Up", new_user_path, :class => "nav-link" %>
+      </li>
+      <% end %>
+
+
+    </ul>
+    <!-- <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form> -->
+  </div>
+</nav>
+    <div class="container">
       <%= yield %>
     </div>
   </body>
