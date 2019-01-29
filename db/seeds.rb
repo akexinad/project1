@@ -26,8 +26,6 @@ t19 = Thinker.create(:name => "Emile Durkheim", :birth => "1858-04-15", :death =
 t20 = Thinker.create(:name => "Edward W. Said", :birth => "1935-11-01", :death => "2003-09-25", :nationality => "Palestine", :era => "20th Century Philosophy", :image => "https://tankmagazine.com/media/506356/p44_tnk_08_2003-1.jpg?width=920&format=webp", :quote => "Humanism is the only - I would go so far as saying the final- resistance we have against the inhuman practices and injustices that disfigure human history.")
 t21 = Thinker.create(:name => "Friedrich Nietzsche", :birth => "1844-10-15", :death => "1900-08-25", :nationality => "Germany", :era => "19th Century Philosophy", :image => "https://upload.wikimedia.org/wikipedia/commons/1/1b/Nietzsche187a.jpg")
 
-
-
 Theory.destroy_all
 ty1 = Theory.create :name => "Transcendental Idealism"
 ty2 = Theory.create :name => "Protestant Work Ethic"

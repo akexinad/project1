@@ -1,7 +1,10 @@
 # PROJECT1
 
+[Click here for live Heroku version](https://gaproject1.herokuapp.com/)
+
 This is basically a simple database of historical thinkers, collecting the theories they have developed and the academic fields to which they have contributed.
 
+The user can add a thinker to his/her favourites list, and through the thinker you can see the theories and fields that are associated to that particular thinker.
 
 ## Models
 
@@ -76,8 +79,26 @@ gem 'cloudinary'
 
 - I used httparty and googlebooks to return thinker's publications and put them in a list of the thinekr's show page.
 
-- bootstrap for class
+- bootstrap for css
 
-- cloudinar for images
+- cloudinary for images
 
 - I wanted to include a search feature for the 3 main models, and thought that pg_search was the best option to use alongside postgresql.
+
+
+## Things I didn't get to do.
+
+Ideally I wanted to use pg_search multisearch and add it to the nav bar so I could search the databases universally, but didn't have time to integrate it properly.
+
+I wanted to add an "influenced" and "influenced by" association/relation between thinkers per se.
+
+Finally I would have liked to have added a "favourite theories" option for the user alongside the "favourite thinkers"
+
+
+## Improvements
+
+The search capabilities. Upgrade it to multisearch.
+
+The user profiles so the user can add info on themselves. I would have liked to add an option where the user can add publications he/she is working on and append the favourites according to the research being done for each publication.
+
+The CSS!

@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   resources :fields
 
   post "/thinkers/:id/favourite" => "thinkers#add_to_favourites", :as => "add_to_favourites"
-  # The unfavourite was created to redirect the route to the correct controller in order to trigger the destroy_favourite method. The - :as => "..." creates the rails path!
+  # The variable "remove_favourite" was created to redirect the route to the correct controller in order to trigger the destroy_favourite method. The - :as => "..." creates the rails path!
   get  "/users/:id/remove_favourite" => "thinkers#destroy_favourite", :as => "delete_from_favourites"
 
 end
